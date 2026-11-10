@@ -1,25 +1,56 @@
-### [WearSafe](https://github.com/cuencaaa11/Projecte-Roba)
-WearSafe: resum del projecte
+WearSafe: descripció del projecte
+1. Context
 
-WearSafe sera una empresa que ven un rellotge intel·ligent amb GPS i un servei web. L’objectiu és que les famílies sàpiguen on és el seu fill i rebin un avís ràpid si hi ha algun perill. Nosaltres fem de l’empresa que dissenya i implanta tot el sistema
-Com funciona
+On s’emmarca. WearSafe és una start-up petita, fundada fa poc, que encara no té cap sistema informàtic propi. Només té una idea clara i un equip petit. Nosaltres fem de l’equip tècnic que li dissenya i li posa en marxa tota la infraestructura.
 
-1. El rellotge. Porta GPS i es connecta per Wi-Fi a Internet. Cada 5 segons envia un senyal al servidor amb la posició, la bateria i l’hora. També té un botó SOS: si el nen el prem, l’avís arriba a la família a l’instant.
+Sector. Seguretat infantil i tecnologia wearable (dispositius que es porten posats), dins dels serveis de localització per a famílies. Els clients són famílies i també escoles, esplais i colònies, que volen saber on són els nens en sortides, parcs, platges o excursions.
 
-2. El servidor. És una màquina virtual al núvol (IaaS), accessible a wearsafe.cat amb connexió segura (HTTPS). Rep cada senyal, comprova que ve d’un rellotge autoritzat i el desa.
+Tipus de projecte. Implantació d’un sistema nou des de zero, amb el desplegament de la infraestructura informàtica que el sosté. No hi ha cap sistema antic que renovar.
+2. Descripció general del sistema
 
-3. La base de dades. Guarda totes les posicions amb la seva data i hora, a més dels usuaris, les zones i les alertes. El client hi té accés a través de la web i pot consultar on ha estat el nen en un dia i una franja horària concretes. La web dibuixa el recorregut al mapa i mostra els llocs on s’ha aturat. L’historial es guarda un màxim d’un mes: les dades més antigues s’esborren soles. Així protegim la privacitat dels menors i només guardem el que cal.
+Què aporta i quin problema soluciona. Moltes famílies viuen amb la por de perdre de vista un nen en llocs plens de gent o amb riscos (carreteres, aigua, mal temps). WearSafe els permet saber on és el nen en tot moment i els avisa abans que passi res.
 
-4. La web. La família entra amb el seu usuari i contrasenya i hi troba:
+Com funciona i quins són els components principals.
 
-    El mapa en directe amb la ubicació exacta del nen, la bateria i l’hora de l’última actualització.
-    L’historial per dia i hora, amb el recorregut dibuixat.
-    Les zones segures: es marca un lloc (casa, escola, parc) i un radi en metres o quilòmetres. Si el nen en surt, arriba una notificació.
-    Les zones perilloses: la família pot marcar un riu, una carretera amb trànsit o unes obres, i rep un avís si el nen s’hi acosta.
-    El llistat d’alertes i la gestió del compte.
-    Una part de botiga :  on es vendran aquests rellotges de diferents colors i tamanys
+    El rellotge. Porta GPS i es comunica per Wi-Fi amb el sistema. Cada 5 segons envia un senyal amb la posició, la bateria i l’hora. També té un botó SOS.
+    El servidor. Rep els senyals del rellotge, comprova que són d’un dispositiu autoritzat i els processa.
+    La base de dades. Guarda les posicions, els usuaris, les zones i les alertes. L’historial de posicions es conserva un màxim d’un mes, i les dades més antigues s’esborren soles.
+    La pàgina web (wearsafe.cat). És la cara visible del sistema per als clients.
+    El sistema d’alertes. Revisa les dades contínuament i avisa quan cal.
+    La xarxa i la infraestructura de l’empresa, que fan que tot això funcioni de manera segura.
 
-5. Les alertes. Un programa del servidor revisa les dades de manera contínua. Avisa quan el nen surt d’una zona segura, entra en una zona perillosa o s’allunya massa de l’adult. També avisa si hi ha pluja, tempesta, vent fort o calor extrema a la seva posició, o si hi ha bateria baixa, SOS o el rellotge es queda sense connexió. Els avisos surten a la web i al mòbil de la família per Telegram.
-Part de xarxa
+Qui l’usa, com i per què.
 
-Dissenyem i simulem a Packet Tracer la xarxa d’oficina de WearSafe, amb VLANs per separar administració, suport tècnic, servidors, invitats i proves de rellotges. Hi afegim DHCP, DNS, NAT i regles de seguretat (ACL). Al servidor real configurem DNS, HTTPS, firewall i còpies de seguretat.
+    Les famílies i els tutors entren a la web amb el seu usuari i:
+        veuen la ubicació exacta en un mapa;
+        consulten on ha estat el nen en un dia i una franja horària concreta, dins d’un màxim d’un mes;
+        defineixen zones segures amb un radi (en metres o quilòmetres) i reben una notificació si el nen en surt;
+        marquen zones perilloses (un riu, una carretera amb trànsit, unes obres) i reben un avís si el nen s’hi acosta;
+        reben avisos per temps advers (pluja, tempesta, vent, calor) a la posició del nen.
+    Ho fan per tenir tranquil·litat i poder actuar a temps.
+    El nen només porta el rellotge i pot prémer el botó SOS.
+    El personal de WearSafe dona d’alta famílies i rellotges, i fa el suport i el manteniment del sistema.
+
+3. Abast del projecte
+
+Què entra:
+
+    Un prototip funcional de rellotge amb GPS i comunicació Wi-Fi, amb enviament cada 5 segons.
+    El servidor i la base de dades, amb l’historial limitat a un mes.
+    La web amb mapa, historial, zones segures, zones perilloses i alertes.
+    La xarxa d’oficina de WearSafe (simulada), amb seguretat bàsica i còpies de seguretat.
+    La documentació i la presentació del projecte.
+
+Què no entra:
+
+    La fabricació en sèrie del rellotge i la seva certificació (CE).
+    L’ús amb dades reals de menors. Totes les proves es fan amb dades fictícies.
+    Els avisos oficials del temps o de protecció civil. Els nostres avisos són orientatius.
+
+Què queda per a fases posteriors o per a altres empreses:
+
+    La connexió 4G, perquè el rellotge funcioni sense Wi-Fi, requeriria un operador mòbil i una versió nova del maquinari.
+    Una app mòbil nativa, que ara se substitueix per la web adaptada al mòbil.
+    La fabricació del rellotge, que correspondria a un fabricant extern.
+
+Limitacions conegudes. El GPS funciona malament a l’interior. Enviar un senyal cada 5 segons gasta molta bateria, així que n’haurem de mesurar l’autonomia. Al prototip, el rellotge es connecta per Wi-Fi al punt d’accés d’un mòbil. El sistema no substitueix mai la vigilància d’un adult.
