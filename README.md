@@ -1,4 +1,4 @@
-WearSafe: descripció del projecte
+WearSafe
 1. Context
 
 On s’emmarca. WearSafe és una start-up petita, fundada fa poc, que encara no té cap sistema informàtic propi. Només té una idea clara i un equip petit. Nosaltres fem de l’equip tècnic que li dissenya i li posa en marxa tota la infraestructura.
